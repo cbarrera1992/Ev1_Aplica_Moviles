@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="toolbar-empresa">
+    <ion-title>Gestión de Tareas</ion-title>
+    <ion-badge slot="end" color="secondary">{{ totalTareas }}</ion-badge>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding contenido-empresa">
+  <div class="cabecera-empresa">
+    <div>
+      <p class="eyebrow">Panel operativo</p>
+      <h1>To-Do List</h1>
+    </div>
+  </div>
+
+  <ion-card class="card-empresa">
+    <ion-card-header>
+      <ion-card-title>{{ editandoId !== null ? 'Editar tarea' : 'Nueva tarea' }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item lines="none" class="campo-empresa">
+        <ion-label position="floating">Título</ion-label>
+        <ion-input [(ngModel)]="titulo" type="text" maxlength="50"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="campo-empresa">
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-textarea [(ngModel)]="descripcion" rows="3" maxlength="150"></ion-textarea>
+      </ion-item>
+
+      <div class="acciones-formulario">
+        <ion-button expand="block" class="boton-principal" (click)="guardarTarea()">
+          {{ editandoId !== null ? 'Guardar cambios' : 'Agregar tarea' }}
+        </ion-button>
+
+        <ion-button *ngIf="editandoId !== null" expand="block" color="medium" fill="outline" (click)="limpiarFormulario()">
+          Cancelar
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <section class="seccion-lista">
+    <div class="titulo-seccion">
+      <h2>Tareas pendientes</h2>
+    </div>
+
+    <ion-list *ngIf="tareas.length > 0; else vacio" class="lista-empresa">
+      <ion-item *ngFor="let tarea of tareas" lines="full" class="item-tarea">
+        <ion-label>
+          <h3>{{ tarea.titulo }}</h3>
+          <p>{{ tarea.descripcion }}</p>
+          <small>{{ tarea.creadaEn | date: 'dd/MM/yyyy' }}</small>
+        </ion-label>
+
+        <div class="acciones-tarea" slot="end">
+          <ion-button fill="clear" color="warning" (click)="editarTarea(tarea)">
+            Editar
+          </ion-button>
+
+          <ion-button fill="clear" color="danger" (click)="eliminarTarea(tarea.id)">
+            Eliminar
+          </ion-button>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ng-template #vacio>
+      <ion-card class="card-vacia">
+        <ion-card-content class="ion-text-center">
+          <p>No hay tareas registradas aún.</p>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+  </section>
+</ion-content>

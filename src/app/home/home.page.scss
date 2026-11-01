@@ -1,0 +1,139 @@
+ion-content {
+  --background: #f3f6fb;
+}
+
+.toolbar-empresa {
+  --background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --color: #ffffff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.cabecera-empresa {
+  margin: 12px 0 18px;
+}
+
+.cabecera-empresa h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.card-empresa,
+.card-vacia {
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.card-empresa ion-card-title {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.campo-empresa {
+  --background: #f8fafc;
+  --border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin: 10px 0;
+  --padding-start: 14px;
+  --padding-end: 14px;
+}
+
+.acciones-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.boton-principal {
+  --background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --border-radius: 12px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.seccion-lista {
+  margin-top: 22px;
+}
+
+.titulo-seccion {
+  margin-bottom: 12px;
+}
+
+.titulo-seccion h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.lista-empresa {
+  background: transparent;
+  padding: 0;
+}
+
+.item-tarea {
+  --background: #ffffff;
+  --border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.item-tarea h3 {
+  margin: 0 0 4px;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.item-tarea p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.item-tarea small {
+  display: block;
+  margin-top: 8px;
+  color: #64748b;
+}
+
+.acciones-tarea {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+ion-badge {
+  min-width: 32px;
+  justify-content: center;
+  font-weight: 700;
+}
+
+@media (max-width: 420px) {
+  .acciones-tarea {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+
+  .item-tarea {
+    --padding-start: 12px;
+    --padding-end: 12px;
+  }
+}
